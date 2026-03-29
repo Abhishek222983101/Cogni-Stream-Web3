@@ -4,8 +4,7 @@ services:
     env: python
     plan: free # Force the free tier
     buildCommand: |
-      pip install -r requirements.txt
-      pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.3/en_core_sci_md-0.5.3.tar.gz
+      ./build.sh
     startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
